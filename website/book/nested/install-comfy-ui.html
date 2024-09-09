@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../getting_started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nested/install-python.html">Install Python</a></li><li class="chapter-item "><a href="../nested/install-git.html">Install Git</a></li><li class="chapter-item expanded "><a href="../nested/install-comfy-ui.html" class="active">Install ComfyUI</a></li><li class="chapter-item "><a href="../nested/install-comfy-ui-manager.html">Install ComfyUI Manager</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nested/install-python.html">Install Python</a></li><li class="chapter-item "><a href="../nested/install-git.html">Install Git</a></li><li class="chapter-item expanded "><a href="../nested/install-comfy-ui.html" class="active">Install ComfyUI</a></li><li class="chapter-item "><a href="../nested/install-comfy-ui-manager.html">Install ComfyUI Manager</a></li><li class="chapter-item "><a href="../nested/install-checkpoint.html">Install Checkpoint</a></li></ol></li><li class="chapter-item "><a href="../unity-integration.html">Unity Integration</a></li><li class="chapter-item "><a href="../advanced-features.html">Advanced Features</a></li><li class="chapter-item "><a href="../resources.html">Resources</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -176,6 +176,23 @@
                     <main>
                         <div class="content-wrap">
                             <h1 id="install-comfyui"><a class="header" href="#install-comfyui">Install ComfyUI</a></h1>
+<p>ComfyUI will be the interface where you build your stable diffusion workflow. It also serves as a server (using localhost)!</p>
+<ol>
+<li>
+<p>Download ComfyUI using <a href="https://github.com/comfyanonymous/ComfyUI/archive/refs/heads/master.zip">this</a></p>
+</li>
+<li>
+<p>Unzip the folder to somewhere easily accessible. I'd recommend unzipping the file to a drive that has at least 10-20 GB of free memory as some of the necessary files are quite large!</p>
+</li>
+<li>
+<p>Double click on the <code>run_nvidia_gpu</code> batch file to start the ComfyUI server. If your computer doesn't have a NVIDIA GPU, you can use your CPU by running <code>run_cpu</code> instead, but be warned: the image generation time might take excrutiatingly long and the process is extremely taxing on your CPU!</p>
+<p><img src="../../images/run_nvidia_gpu.png" alt=" " /></p>
+</li>
+<li>
+<p>This should pull up a command prompt indicating the server is running. After a while, a webpage should open on your default browser. This will be the interface you'll be working with.</p>
+<p><img src="../../images/comfyui_default.png" alt=" " /></p>
+</li>
+</ol>
 
                         </div>
                         <div class="sidetoc">

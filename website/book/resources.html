@@ -3,8 +3,7 @@
 <head>
     <!-- Book generated using mdBook -->
     <meta charset="UTF-8">
-    <title>FYP_Q3_Documentation</title>
-    <meta name="robots" content="noindex">
+    <title>Resources - FYP_Q3_Documentation</title>
 
 
     <!-- Custom HTML head -->
@@ -90,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/install-python.html">Install Python</a></li><li class="chapter-item "><a href="nested/install-git.html">Install Git</a></li><li class="chapter-item "><a href="nested/install-comfy-ui.html">Install ComfyUI</a></li><li class="chapter-item "><a href="nested/install-comfy-ui-manager.html">Install ComfyUI Manager</a></li><li class="chapter-item "><a href="nested/install-checkpoint.html">Install Checkpoint</a></li></ol></li><li class="chapter-item "><a href="unity-integration.html">Unity Integration</a></li><li class="chapter-item "><a href="advanced-features.html">Advanced Features</a></li><li class="chapter-item "><a href="resources.html">Resources</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/install-python.html">Install Python</a></li><li class="chapter-item "><a href="nested/install-git.html">Install Git</a></li><li class="chapter-item "><a href="nested/install-comfy-ui.html">Install ComfyUI</a></li><li class="chapter-item "><a href="nested/install-comfy-ui-manager.html">Install ComfyUI Manager</a></li><li class="chapter-item "><a href="nested/install-checkpoint.html">Install Checkpoint</a></li></ol></li><li class="chapter-item "><a href="unity-integration.html">Unity Integration</a></li><li class="chapter-item "><a href="advanced-features.html">Advanced Features</a></li><li class="chapter-item expanded "><a href="resources.html" class="active">Resources</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -176,131 +175,7 @@
                 <div id="content" class="content">
                     <main>
                         <div class="content-wrap">
-                            <h1 id="application-of-stable-diffusion-in-unity-using-comfyui"><a class="header" href="#application-of-stable-diffusion-in-unity-using-comfyui">Application Of Stable Diffusion In Unity Using ComfyUI</a></h1>
-<h2 id="description"><a class="header" href="#description">Description</a></h2>
-<p>This documentation will walk you through:</p>
-<ol>
-<li><a href="./nested/install-python.html">Setting up ComfyUI</a></li>
-<li><a href="./unity-integration.html">Integrating ComfyUI into Unity</a></li>
-<li><a href="./advanced-features.html">Advanced ComfyUI Features</a></li>
-<li><a href="./resources.html">Learning Resources</a></li>
-</ol>
-<h2 id="prerequisits"><a class="header" href="#prerequisits">Prerequisits</a></h2>
-<ol>
-<li>Windows 7+</li>
-<li>NVIDIA GPU (Optional but highly recommended. Otherwise, having a strong CPU)</li>
-<li>~10-50 GB of free storage</li>
-</ol>
-<h2 id="license"><a class="header" href="#license">License</a></h2>
-<p>You may freely share &amp; edit this documentation. This documentation is free and made only for education purposes. The author(s) are not responsible for <strong>ANY</strong> actions you may take while using the AI.</p>
-<h2 id="contributing"><a class="header" href="#contributing">Contributing</a></h2>
-<p>Contribute to this documentation <a href="https://github.com/Zehui2020/FYP_Q3_AI_Documentation.git">here</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="install-python"><a class="header" href="#install-python">Install Python</a></h1>
-<p>ComfyUI requires Python for its features. Don't worry, this will not affect anything on the Unity side!</p>
-<p>We'll be using Python 3.10.10 for Windows. Please make sure your Windows machine is higher than Windows 7, or it won't work!</p>
-<ol>
-<li>
-<p>Install Python <a href="https://www.python.org/downloads/windows/">here</a></p>
-</li>
-<li>
-<p>To search for Python 3.10.10 with ease, hold <code>CTRL</code> + <code>H</code> and search for "3.10.10" in the search bar</p>
-<p><img src="nested/../../images/download_python.png" alt=" " /></p>
-</li>
-<li>
-<p>After downloading the installer, double click it to launch the exe.</p>
-<p><img src="nested/../../images/python_installer.png" alt=" " /></p>
-</li>
-<li>
-<p>Make sure "Add Python to environment vairables" is checked in advanced options!</p>
-<p><img src="nested/../../images/python-install-options.png" alt=" " /></p>
-</li>
-<li>
-<p>If you already have Python installed on your computer, just click on "Modify" and ensure "Add Python to environment vairables" is checked</p>
-<p><img src="nested/../../images/python-modify.png" alt=" " /></p>
-</li>
-</ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="install-git"><a class="header" href="#install-git">Install Git</a></h1>
-<p>Git is <strong>NOT</strong> the same as Github Desktop! Git will be used to access and clone online repos into your existing project.</p>
-<ol>
-<li>
-<p>Install Git <a href="https://git-scm.com/download/win">here</a></p>
-<p><img src="nested/../../images/git_install.png" alt=" " /></p>
-</li>
-<li>
-<p>Double click the installer and use default settings for all the options (Keep pressing next until the download starts)</p>
-<p><img src="nested/../../images/git_installer.png" alt=" " /></p>
-</li>
-<li>
-<p>Wait for the install to complete!</p>
-<p><img src="nested/../../images/git_install_finish.png" alt=" " /></p>
-</li>
-</ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="install-comfyui"><a class="header" href="#install-comfyui">Install ComfyUI</a></h1>
-<p>ComfyUI will be the interface where you build your stable diffusion workflow. It also serves as a server (using localhost)!</p>
-<ol>
-<li>
-<p>Download ComfyUI using <a href="https://github.com/comfyanonymous/ComfyUI/archive/refs/heads/master.zip">this</a></p>
-</li>
-<li>
-<p>Unzip the folder to somewhere easily accessible. I'd recommend unzipping the file to a drive that has at least 10-20 GB of free memory as some of the necessary files are quite large!</p>
-</li>
-<li>
-<p>Double click on the <code>run_nvidia_gpu</code> batch file to start the ComfyUI server. If your computer doesn't have a NVIDIA GPU, you can use your CPU by running <code>run_cpu</code> instead, but be warned: the image generation time might take excrutiatingly long and the process is extremely taxing on your CPU!</p>
-<p><img src="nested/../../images/run_nvidia_gpu.png" alt=" " /></p>
-</li>
-<li>
-<p>This should pull up a command prompt indicating the server is running. After a while, a webpage should open on your default browser. This will be the interface you'll be working with.</p>
-<p><img src="nested/../../images/comfyui_default.png" alt=" " /></p>
-</li>
-</ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="install-comfyui-manager"><a class="header" href="#install-comfyui-manager">Install ComfyUI Manager</a></h1>
-<p>ComfyUIManager is an <code>extension</code> for ComfyUI. Think of <code>extensions</code> as mods for a game. ComfyUIManager will help you manage all sorts of features such as installing custom nodes, installing AI models, and many more!</p>
-<ol>
-<li>
-<p>Download ComfyUIManager using <a href="https://github.com/ltdrdata/ComfyUI-Manager/archive/refs/heads/main.zip">this</a></p>
-</li>
-<li>
-<p>Unzip the file to <code>ComfyUI_windows_portable\ComfyUI\custom_nodes</code></p>
-</li>
-<li>
-<p>Restart the server by closing the command prompt running the server, and double clicking on <code>run_nvidia_gpu</code>. Refer back to <a href="nested/install-comfy-ui.html">Comfy UI</a> for more details.</p>
-</li>
-<li>
-<p>If you did everything correctly, you should see an additional section below the sidebar called <code>Manager</code>.</p>
-<p><img src="nested/../../images/comfyui_manager.png" alt=" " /></p>
-</li>
-</ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="install-checkpoint"><a class="header" href="#install-checkpoint">Install Checkpoint</a></h1>
-<p>Finally, we need to install a <code>checkpoint</code>. The <code>checkpoint</code> can be interpreted as the "AI model" used for image generation. Various <code>checkpoints</code> are available online for download, each differing in speed and quality based on the data used during their training. Choosing the right <code>checkpoint</code> is crucial, as it directly impacts the art style and performance of your project.</p>
-<ol>
-<li>
-<p>A common <code>checkpoint</code> used is <code>sd-xl 1.0</code>. We can try using this <code>checkpoint</code> for now. Inside ComfyUI, open up the ComfyUIManager by clicking on the <code>Manager</code> button located at the bottom of the sidebar. Refer to <a href="nested/install-comfy-ui-manager.html">ComfyUIManager</a> if you don't see it.</p>
-<p><img src="nested/../images/comfyui_model_manager.png" alt=" " /></p>
-</li>
-<li>
-<p>Click on the <code>Model Manager</code> button and search for <code>SDXL</code> in the search bar. Install <code>SDXL-Turbo 1.0</code>.</p>
-<p><img src="nested/../images/install_sdxl.png" alt=" " /></p>
-</li>
-<li>
-<p>After the installation is done, you'll see that ComfyUIManager prompts you to restart ComfyUI to see the changes. Press the <code>restart</code> button to restart ComfyUI. (I used ComfyUI Impact Pack as an example. You don't have to download it on your end.)</p>
-<p><img src="nested/../images/restart_comfy.png" alt=" " /></p>
-</li>
-<li>
-<p>After the server restarts, assign the <code>SDXL-Turbo 1.0</code> checkpoint in the <code>Load Checkpoint</code> node.</p>
-<p><img src="nested/../images/assign_checkpoint.png" alt=" " /></p>
-</li>
-<li>
-<p>Then click on the <code>Queue Prompt</code> button at the top of the sidebar. You can tell which node ComfyUI is currently on by looking for the green outline on the nodes. You can also check the Command Prompt for more details.</p>
-<p><img src="nested/../images/queue_prompt.png" alt=" " /></p>
-</li>
-<li>
-<p>After the generation is done, you can see the image result displayed under the <code>Save Image</code> node. Congratulations! You've used ComfyUI to generate your first ever AI art! You're now the #1 enemy for all artists!</p>
-<p><img src="nested/../images/image_result.png" alt=" " /></p>
-</li>
-</ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="unity-integration"><a class="header" href="#unity-integration">Unity Integration</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="advanced-features"><a class="header" href="#advanced-features">Advanced Features</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="resources"><a class="header" href="#resources">Resources</a></h1>
+                            <h1 id="resources"><a class="header" href="#resources">Resources</a></h1>
 <h2 id="useful-links"><a class="header" href="#useful-links">Useful Links</a></h2>
 <ol>
 <li>
@@ -329,6 +204,9 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                        <a rel="prev" href="advanced-features.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
 
 
                         <div style="clear: both"></div>
@@ -337,6 +215,9 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="advanced-features.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <i class="fa fa-angle-left"></i>
+                </a>
 
             </nav>
 
@@ -377,11 +258,6 @@
         <!-- Custom JS scripts -->
         <script src="theme/pagetoc.js"></script>
 
-        <script>
-            window.addEventListener('load', function () {
-                window.setTimeout(window.print, 100);
-            });
-        </script>
 
     </div>
 </body>

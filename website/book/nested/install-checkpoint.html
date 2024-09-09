@@ -3,7 +3,7 @@
 <head>
     <!-- Book generated using mdBook -->
     <meta charset="UTF-8">
-    <title>Getting Started - FYP_Q3_Documentation</title>
+    <title>Install Checkpoint - FYP_Q3_Documentation</title>
 
 
     <!-- Custom HTML head -->
@@ -12,31 +12,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="favicon.svg">
-    <link rel="shortcut icon" href="favicon.png">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/chrome.css">
-    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="icon" href="../favicon.svg">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../css/print.css" media="print">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" href="highlight.css">
-    <link rel="stylesheet" href="tomorrow-night.css">
-    <link rel="stylesheet" href="ayu-highlight.css">
+    <link rel="stylesheet" href="../highlight.css">
+    <link rel="stylesheet" href="../tomorrow-night.css">
+    <link rel="stylesheet" href="../ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
-    <link rel="stylesheet" href="theme/pagetoc.css">
+    <link rel="stylesheet" href="../theme/pagetoc.css">
 
 </head>
 <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="getting_started.html" class="active">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/install-python.html">Install Python</a></li><li class="chapter-item "><a href="nested/install-git.html">Install Git</a></li><li class="chapter-item "><a href="nested/install-comfy-ui.html">Install ComfyUI</a></li><li class="chapter-item "><a href="nested/install-comfy-ui-manager.html">Install ComfyUI Manager</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nested/install-python.html">Install Python</a></li><li class="chapter-item "><a href="../nested/install-git.html">Install Git</a></li><li class="chapter-item "><a href="../nested/install-comfy-ui.html">Install ComfyUI</a></li><li class="chapter-item "><a href="../nested/install-comfy-ui-manager.html">Install ComfyUI Manager</a></li><li class="chapter-item expanded "><a href="../nested/install-checkpoint.html" class="active">Install Checkpoint</a></li></ol></li><li class="chapter-item "><a href="../unity-integration.html">Unity Integration</a></li><li class="chapter-item "><a href="../advanced-features.html">Advanced Features</a></li><li class="chapter-item "><a href="../resources.html">Resources</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -145,7 +145,7 @@
                     <h1 class="menu-title">FYP_Q3_Documentation</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -175,16 +175,34 @@
                 <div id="content" class="content">
                     <main>
                         <div class="content-wrap">
-                            <h1 id="stable-diffusion-integration-with-unity"><a class="header" href="#stable-diffusion-integration-with-unity">Stable Diffusion Integration With Unity</a></h1>
-<h2 id="description"><a class="header" href="#description">Description</a></h2>
-<p>This documentation will walk you through:</p>
-<ul>
-<li>Setting up a simple AI stable diffusion model using ComfyUI</li>
-<li>Integrating with Unity</li>
-<li>Saving / Loading the generated images on the local disk.</li>
-</ul>
-<h2 id="license"><a class="header" href="#license">License</a></h2>
-<p>This documentation is provided solely for educational purposes. The author assumes no responsibility for <strong>ANY</strong> actions taken based on the use of AI.</p>
+                            <h1 id="install-checkpoint"><a class="header" href="#install-checkpoint">Install Checkpoint</a></h1>
+<p>Finally, we need to install a <code>checkpoint</code>. The <code>checkpoint</code> can be interpreted as the "AI model" used for image generation. Various <code>checkpoints</code> are available online for download, each differing in speed and quality based on the data used during their training. Choosing the right <code>checkpoint</code> is crucial, as it directly impacts the art style and performance of your project.</p>
+<ol>
+<li>
+<p>A common <code>checkpoint</code> used is <code>sd-xl 1.0</code>. We can try using this <code>checkpoint</code> for now. Inside ComfyUI, open up the ComfyUIManager by clicking on the <code>Manager</code> button located at the bottom of the sidebar. Refer to <a href="install-comfy-ui-manager.html">ComfyUIManager</a> if you don't see it.</p>
+<p><img src="../images/comfyui_model_manager.png" alt=" " /></p>
+</li>
+<li>
+<p>Click on the <code>Model Manager</code> button and search for <code>SDXL</code> in the search bar. Install <code>SDXL-Turbo 1.0</code>.</p>
+<p><img src="../images/install_sdxl.png" alt=" " /></p>
+</li>
+<li>
+<p>After the installation is done, you'll see that ComfyUIManager prompts you to restart ComfyUI to see the changes. Press the <code>restart</code> button to restart ComfyUI. (I used ComfyUI Impact Pack as an example. You don't have to download it on your end.)</p>
+<p><img src="../images/restart_comfy.png" alt=" " /></p>
+</li>
+<li>
+<p>After the server restarts, assign the <code>SDXL-Turbo 1.0</code> checkpoint in the <code>Load Checkpoint</code> node.</p>
+<p><img src="../images/assign_checkpoint.png" alt=" " /></p>
+</li>
+<li>
+<p>Then click on the <code>Queue Prompt</code> button at the top of the sidebar. You can tell which node ComfyUI is currently on by looking for the green outline on the nodes. You can also check the Command Prompt for more details.</p>
+<p><img src="../images/queue_prompt.png" alt=" " /></p>
+</li>
+<li>
+<p>After the generation is done, you can see the image result displayed under the <code>Save Image</code> node. Congratulations! You've used ComfyUI to generate your first ever AI art! You're now the #1 enemy for all artists!</p>
+<p><img src="../images/image_result.png" alt=" " /></p>
+</li>
+</ol>
 
                         </div>
                         <div class="sidetoc">
@@ -194,8 +212,11 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                        <a rel="prev" href="../nested/install-comfy-ui-manager.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
 
-                        <a rel="next prefetch" href="nested/install-python.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <a rel="next prefetch" href="../unity-integration.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                             <i class="fa fa-angle-right"></i>
                         </a>
 
@@ -205,8 +226,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="../nested/install-comfy-ui-manager.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <i class="fa fa-angle-left"></i>
+                </a>
 
-                <a rel="next prefetch" href="nested/install-python.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                <a rel="next prefetch" href="../unity-integration.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                     <i class="fa fa-angle-right"></i>
                 </a>
             </nav>
@@ -237,16 +261,16 @@
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="theme/pagetoc.js"></script>
+        <script src="../theme/pagetoc.js"></script>
 
 
     </div>
