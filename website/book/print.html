@@ -90,7 +90,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/install-python.html">Install Python</a></li><li class="chapter-item "><a href="nested/install-git.html">Install Git</a></li><li class="chapter-item "><a href="nested/install-comfy-ui.html">Install ComfyUI</a></li><li class="chapter-item "><a href="nested/install-comfy-ui-manager.html">Install ComfyUI Manager</a></li><li class="chapter-item "><a href="nested/install-checkpoint.html">Install Checkpoint</a></li></ol></li><li class="chapter-item "><a href="unity-integration.html">Unity Integration</a></li><li class="chapter-item "><a href="advanced-features.html">Advanced Features</a></li><li class="chapter-item "><a href="resources.html">Resources</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/install-python.html">Install Python</a></li><li class="chapter-item "><a href="nested/install-git.html">Install Git</a></li><li class="chapter-item "><a href="nested/install-comfy-ui.html">Install ComfyUI</a></li><li class="chapter-item "><a href="nested/install-comfy-ui-manager.html">Install ComfyUI Manager</a></li><li class="chapter-item "><a href="nested/install-checkpoint.html">Install Checkpoint</a></li></ol></li><li class="chapter-item "><a href="unity-integration.html">Unity Integration</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/comfy-prompt-ctr.html">ComfyPromptCtr</a></li><li class="chapter-item "><a href="nested/comfy-websocket.html">ComfyWebsocket</a></li><li class="chapter-item "><a href="nested/comfy-image-ctr.html">ComfyImageCtr</a></li><li class="chapter-item "><a href="nested/comfy-image-saver.html">ComfyImageSaver</a></li><li class="chapter-item "><a href="nested/comfy-audio.html">ComfyUI Audio</a></li><li class="chapter-item "><a href="nested/comfy-audio-ctr.html">ComfyAudioCtr</a></li></ol></li><li class="chapter-item "><a href="advanced-features.html">Advanced Features</a></li><li class="chapter-item "><a href="resources.html">Resources</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -270,11 +270,11 @@
 <p><img src="nested/../../images/comfyui_manager.png" alt=" " /></p>
 </li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="install-checkpoint"><a class="header" href="#install-checkpoint">Install Checkpoint</a></h1>
-<p>Finally, we need to install a <code>checkpoint</code>. The <code>checkpoint</code> can be interpreted as the "AI model" used for image generation. Various <code>checkpoints</code> are available online for download, each differing in speed and quality based on the data used during their training. Choosing the right <code>checkpoint</code> is crucial, as it directly impacts the art style and performance of your project.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="install-model"><a class="header" href="#install-model">Install Model</a></h1>
+<p>Finally, we need to install a <code>model</code>. The <code>Load Checkpoint</code> node can be interpreted as the loading the "AI model" used for image generation. Various <code>models</code> are available online for download, each differing in speed and quality based on the data used during their training. Choosing the right <code>model</code> is crucial, as it directly impacts the art style and performance of your project.</p>
 <ol>
 <li>
-<p>A common <code>checkpoint</code> used is <code>sd-xl 1.0</code>. We can try using this <code>checkpoint</code> for now. Inside ComfyUI, open up the ComfyUIManager by clicking on the <code>Manager</code> button located at the bottom of the sidebar. Refer to <a href="nested/install-comfy-ui-manager.html">ComfyUIManager</a> if you don't see it.</p>
+<p>A common <code>model</code> used is <code>sd-xl 1.0</code>. We can try using this <code>model</code> for now. Inside ComfyUI, open up the ComfyUIManager by clicking on the <code>Manager</code> button located at the bottom of the sidebar. Refer to <a href="nested/install-comfy-ui-manager.html">ComfyUIManager</a> if you don't see it.</p>
 <p><img src="nested/../images/comfyui_model_manager.png" alt=" " /></p>
 </li>
 <li>
@@ -299,6 +299,478 @@
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="unity-integration"><a class="header" href="#unity-integration">Unity Integration</a></h1>
+<ol>
+<li>
+<p>To communicate with ComfyUI through Unity, you'll need to save your current <code>workflow</code> as an <code>API</code>. This <code>API</code> is saved as a JSON file.</p>
+</li>
+<li>
+<p>To save your current <code>workflow</code> as an <code>API</code>, click on the <code>Save (API Format)</code> on the sidebar. You can then rename this workflow and download it.</p>
+<p><img src="../../images/save_api.png" alt=" " /></p>
+</li>
+<li>
+<p>If you do not see this, go to <code>settings&gt;Comfy&gt;Enable Dev Mode</code>.</p>
+<p><img src="../../images/dev_mode.gif" alt=" " /></p>
+</li>
+<li>
+<p>Opening the JSON file will reveal a huge chunk of text. This is your workflow in JSON format. Don't wory, the only 2 things you need to worry about for now are keys <code>7</code> and <code>8</code>. They are the <code>positive</code> and <code>negative</code> prompts respectively. Do note that the keys are directly related to the number of nodes you have in your <code>workflow</code>, so DO NOT use them as identifiers!</p>
+<p><img src="../../images/api_json.png" alt=" " /></p>
+</li>
+<li>
+<p>Moving over to Unity, we'll be creating 3 scripts.</p>
+<ol>
+<li><code>ComfyPromptCtr</code>: This script handles the queueing of prompts.</li>
+<li><code>ComfyWebsocket</code>:  This script handles the websocket connection with ComfyUI.</li>
+<li><code>ComfyImageCtr</code>: This script handles the recieving / processing of the resulting image.</li>
+</ol>
+</li>
+<li>
+<p>Do note that this is my method of doing this. If you have a better method, feel free to use that instead.</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="comfy-prompt-ctr"><a class="header" href="#comfy-prompt-ctr">Comfy Prompt Ctr</a></h1>
+<ol>
+<li>
+<p>We'll need to define a few vairables first:</p>
+<ol>
+<li><code>Response Data</code> is a <code>holder class</code> for the <code>prompt_id</code> of the current prompt ComfyUI is generating. This is for tracking purposes.</li>
+<li><code>promptJson</code> is a <code>string</code> that stores the API JSON mentioned in <a href="nested/../unity-integration.html">Unity Integration</a>.</li>
+<li><code>pInput</code> and <code>nInput</code> are unity Input Fields for taking the player's input.</li>
+</ol>
+<pre><code class="language-C#">[System.Serializable]
+public class ResponseData
+{
+    public string prompt_id;
+}
+
+[SerializeField] private string promptJson;
+[SerializeField] private InputField pInput, nInput;
+</code></pre>
+</li>
+<li>
+<p>Next, we create a function to call to queue the prompt. We'll also be making use of Unity's <code>web request</code> to upload the JSON API to ComfyUI <code>asynchronously</code> through a coroutine.</p>
+<ol>
+<li>
+<p>Since ComfyUI runs on port 8188 on local host, we can hard code the web URL to <code>http://127.0.0.1:8188</code>. We can then add <code>/prompt</code> at the back to access the prompt queue in ComfyUI.</p>
+<pre><code class="language-C#">private string GeneratePromptJson()
+{
+    string guid = Guid.NewGuid().ToString();
+    string promptJsonWithGuid = $@"
+    {{
+        ""id"": ""{guid}"",
+        ""prompt"": {promptJson}
+    }}";
+
+    return promptJsonWithGuid;
+}
+</code></pre>
+</li>
+<li>
+<p>We'll also create a function that generates a random GUID to be sent to ComfyUI. This will be the <code>promptID</code> for each prompt. This is to make identifying one prompt from another easily. This function will then format it as JSON and return the string.</p>
+</li>
+<li>
+<p>We then modify the Positive and Negative prompts in the JSON API to <code>Pprompt</code> and <code>Nprompt</code> respectively. This is crucial as we'll be using <code>string.Replace()</code> to manipulate the JSON API string to add in the player's own Positive and Negative prompts.</p>
+</li>
+<li>
+<p>We then create a web request and send the JSON API to the prompt queue in ComfyUI. Upon getting the confirmation, ComfyUI will queue the prompt and send back the <code>prompt_id</code> in JSON format, which we can format and parse it using ResponseData and then assign it to the websocket's <code>promptID</code>.</p>
+<pre><code class="language-C#">public void QueuePrompt()
+{
+    StartCoroutine(QueuePromptCoroutine(pInput.text,nInput.text));
+}
+
+private IEnumerator QueuePromptCoroutine(string positivePrompt,string negativePrompt)
+{
+    string url = "http://127.0.0.1:8188/prompt";
+    string promptText = GeneratePromptJson();
+    promptText = promptText.Replace("Pprompt", positivePrompt);
+    promptText = promptText.Replace("Nprompt", negativePrompt);
+    Debug.Log(promptText);
+
+    UnityWebRequest request = new UnityWebRequest(url, "POST");
+    byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(promptText);
+    request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
+    request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+    request.SetRequestHeader("Content-Type", "application/json");
+
+    yield return request.SendWebRequest();
+
+    if (request.result != UnityWebRequest.Result.Success)
+    {
+        Debug.Log(request.error);
+    }
+    else
+    {
+        Debug.Log("Prompt queued successfully." + request.downloadHandler.text);
+        ResponseData data = JsonUtility.FromJson&lt;ResponseData&gt;(request.downloadHandler.text);
+        GetComponent&lt;ComfyWebsocket&gt;().promptID = data.prompt_id;
+    }
+}
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="comfy-websocket"><a class="header" href="#comfy-websocket">Comfy Websocket</a></h1>
+<ol>
+<li>
+<p>We'll need to define a few vairables first:</p>
+<ol>
+<li>
+<p>The ComfyUI <code>serverAddress</code>. As mentioned in <a href="nested/./comfy-prompt-ctr.html">ComfyPromptCtr</a>, since ComfyUI is running on local host <code>port 8188</code>, we can just hardcode this address for the sake of simplicity.</p>
+</li>
+<li>
+<p>The <code>clientID</code> for the client connecting to the server. This is required for each connection.</p>
+</li>
+<li>
+<p>The <code>client webSocket</code> connection will be used to establish a constant connection with ComfyUI.</p>
+</li>
+<li>
+<p><code>ImageCtr</code> is referenced here to pass the image as reference once its recieved by the websocket.</p>
+</li>
+</ol>
+<pre><code class="language-C#">private string serverAddress = "127.0.0.1:8188";
+private string clientId = Guid.NewGuid().ToString();
+private ClientWebSocket ws = new ClientWebSocket();
+public ComfyImageCtr comfyImageCtr;
+public string promptID;
+</code></pre>
+</li>
+<li>
+<p>We'll modify the <code>Start()</code> to be an async operation and await for the connection to the websocket using the hardcoded <code>serverAddress</code> and <code>clientID</code>.</p>
+</li>
+<li>
+<p>We'll then call <code>StartListening()</code> to listen for any updates in the server.</p>
+<pre><code class="language-C#">async void Start()
+{
+    await ws.ConnectAsync(new Uri($"ws://{serverAddress}/ws?clientId={clientId}"), CancellationToken.None);
+    StartListening();
+}    
+</code></pre>
+</li>
+<li>
+<p><code>StartListening()</code> is an async function that creates a <code>buffer</code> to store the response from the comfyUI server. While the websocket is open and the response from the server has not ended yet, we'll keep <code>ReceiveAsync()</code> and storing it into the <code>buffer</code>.</p>
+</li>
+<li>
+<p>We then check if the message is a close message, and if so, await a graceful shutdown of the websocket. Else, parse the message to string.</p>
+</li>
+<li>
+<p>Upon getting the response form the server in string format, we can then check for the string <code>"queue_remaining: 0"</code>. This means that comfyUI has finished processing the image, which causes the queue to change from <code>1</code> to <code>0</code>.</p>
+</li>
+<li>
+<p>Once we know ComfyUI is done, we can send the promptID to <code>ComfyImageCtr</code> for it to download and process the image.</p>
+<pre><code class="language-C#">private async void StartListening()
+{
+    var buffer = new byte[1024 * 4];
+    WebSocketReceiveResult result = null;
+
+    while (ws.State == WebSocketState.Open)
+    {
+        var stringBuilder = new StringBuilder();
+
+        do
+        {
+            result = await ws.ReceiveAsync(new ArraySegment&lt;byte&gt;(buffer), CancellationToken.None);
+            if (result.MessageType == WebSocketMessageType.Close)
+            {
+                await ws.CloseAsync(WebSocketCloseStatus.NormalClosure, string.Empty, CancellationToken.None);
+            }
+            else
+            {
+                var str = Encoding.UTF8.GetString(buffer, 0, result.Count);
+                stringBuilder.Append(str);
+            }
+        }
+
+        while (!result.EndOfMessage);
+
+        string response = stringBuilder.ToString();
+        Debug.Log("Received: " + response);
+    
+        if (response.Contains("\"queue_remaining\": 0"))
+        {
+            comfyImageCtr.RequestFileName(promptID);
+        }
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>To ensure the closure of the websocket when it's no longer needed (4e.g. when player exits game / switches scene), we close the websocket connection in <code>OnDestroy()</code>.</p>
+<pre><code class="language-C#">void OnDestroy()
+{
+    if (ws != null &amp;&amp; ws.State == WebSocketState.Open)
+    {
+        ws.CloseAsync(WebSocketCloseStatus.NormalClosure, string.Empty, CancellationToken.None);
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>BONUS! Check the <code>response</code> string from ComfyUI, you are be able to create a really cool loading bar for the image generation in your project!</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="comfy-image-ctr"><a class="header" href="#comfy-image-ctr">Comfy Image Ctr</a></h1>
+<ol>
+<li>
+<p>We only need a reference to a UI image to display the output image.</p>
+<pre><code class="language-C#">[SerializeField] Image outputImage;
+</code></pre>
+</li>
+<li>
+<p>We'll then create the <code>RequestFileName()</code> being called in <a href="nested/./comfy-prompt-ctr.html">Comfy Prompt Ctr</a>. It takes in the promptID that is ready for image downloading and starts a coroutine for async purposes.</p>
+</li>
+<li>
+<p>Inside the <code>RequestFileNameRoutine()</code> coroutine, we can hardcode the URL to access the <code>history</code> of the prompt (using the <code>promptID</code>). We can then create a <code>webrequest</code> to access the history using the URL and look for the output image. Once we successfully locate the history, we can then proceed to download the image.</p>
+<pre><code class="language-C#">public void RequestFileName(string id)
+{
+    StartCoroutine(RequestFileNameRoutine(id));
+}
+
+private IEnumerator RequestFileNameRoutine(string promptID)
+{
+    string url = "http://127.0.0.1:8188/history/" + promptID;
+    
+    using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
+    {
+        yield return webRequest.SendWebRequest();
+        
+        switch (webRequest.result)
+        {
+            case UnityWebRequest.Result.ConnectionError:
+            case UnityWebRequest.Result.DataProcessingError:
+                Debug.LogError(": Error: " + webRequest.error);
+                break;
+            case UnityWebRequest.Result.ProtocolError:
+                Debug.LogError(": HTTP Error: " + webRequest.error);
+                break;
+            case UnityWebRequest.Result.Success:
+                Debug.Log(":\nReceived: " + webRequest.downloadHandler.text);
+                string imageURL = "http://127.0.0.1:8188/view?filename=" + ExtractFilename(webRequest.downloadHandler.text);
+                StartCoroutine(DownloadImage(imageURL));
+                break;
+        }
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>To download the image, we first need a URL to said image through using the filename of the image. We have a function called <code>ExtractFilename()</code> just for that.</p>
+</li>
+<li>
+<p>The result from the web request should look something like this:</p>
+<pre><code class="language-C#">{
+    ...
+    "outputs": {
+    "9": {
+        "images": [
+        {
+            "filename": "ComfyUI_00449_.png",
+            "subfolder": "",
+            "type": "output"
+        }
+        ]
+    }
+    },
+    ...
+}
+</code></pre>
+</li>
+<li>
+<p>We'll have to extract <code>"ComfyUI_00449_.png"</code> from this long result JSON in order to create a URL to download this image. Do note that you'll have to modify this function when using <code>controlnets</code>, more on that later.</p>
+<ol>
+<li>
+<p>First up, we'll use basic string manipulation to locate where <code>"filename": </code> is.</p>
+</li>
+<li>
+<p>We then find the end index, which we use <code>","</code> as the identifier.</p>
+</li>
+<li>
+<p>We then extract the string between the end of <code>"filename": </code> and before <code>","</code>.</p>
+</li>
+<li>
+<p>Lastly, we remove <code>""</code> from the string to get the filename and return it.</p>
+</li>
+</ol>
+<pre><code class="language-C#">string ExtractFilename(string jsonString)
+{
+    string keyToLookFor = "\"filename\":";
+    int startIndex = jsonString.IndexOf(keyToLookFor);
+
+    if (startIndex == -1)
+    {
+        return "filename key not found";
+    }
+
+    startIndex += keyToLookFor.Length;
+    string fromFileName = jsonString.Substring(startIndex);
+    int endIndex = fromFileName.IndexOf(',');
+    string filenameWithQuotes = fromFileName.Substring(0, endIndex).Trim();
+    string filename = filenameWithQuotes.Trim('"');
+    return filename;
+}
+</code></pre>
+</li>
+<li>
+<p>Once we have the filename to download, we can hardcode another URL: <code>"http://127.0.0.1:8188/view?filename="</code> and append the filename to the back of this string to get the complete URL to download the image.</p>
+<ol>
+<li>We then send a webrequest to download the image as a texture using <code>UnityWebRequestTexture.GetTexture()</code>. We then wait for the request to be sent.</li>
+<li>After getting a response, we can check if the webrequest was successful and if so, convert it to a <code>Texture2D</code> and assign it to the UI Image.</li>
+</ol>
+<pre><code class="language-C#">private IEnumerator DownloadImage(string imageUrl)
+{
+    yield return new WaitForSeconds(0.5f);
+
+    using (UnityWebRequest webRequest = UnityWebRequestTexture.GetTexture(imageUrl))
+    {
+        yield return webRequest.SendWebRequest();
+
+        if (webRequest.result == UnityWebRequest.Result.Success)
+        {
+            Texture2D texture = ((DownloadHandlerTexture)webRequest.downloadHandler).texture;
+            outputImage.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+
+        }
+        else
+        {
+            Debug.LogError("Image download failed: " + webRequest.error);
+        }
+    }
+}
+</code></pre>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="comfy-image-saver"><a class="header" href="#comfy-image-saver">Comfy Image Saver</a></h1>
+<ol>
+<li>
+<p>After recieving the image, you might want to save it somewhere first instead of immediately displaying it on a UI Image. To do this, you can either:</p>
+<ol>
+<li>Set up your own server and save it there.</li>
+<li>Save the image locally.</li>
+</ol>
+<p>For the sake of simplicity, let's go with saving locally.</p>
+</li>
+<li>
+<p>Create a class called <code>ImageSaver</code>. Please make it a static class so you can access it anywhere without needing to attach it to the gameobject. My 1 brain cell made it a monobehaviour and I'm lazy to change it, so for all the functions show below, add <code>static</code> beforw <code>void</code>.</p>
+<pre><code class="language-c#">Do:
+public static class ImageSaver {}
+
+NOT:
+public class ImageSaver : MonoBehaviour {}
+</code></pre>
+</li>
+<li>
+<p>We can then create a function called SaveImageToLocalDisk that takes in the texture and the filename of the image to save. To save a texture as a PNG, we have to encode it to PNG using <code>EncodeToPNG()</code> and store it within a <code>byte array</code>. We can then use <code>File.WriteAllBytes()</code> to save the image to the <code>persistentDataPath</code>.</p>
+<pre><code class="language-c#">public void SaveImageToLocalDisk(Texture2D texture, string fileName)
+{
+    if (texture == null)
+    {
+        Debug.Log("Nothing to save to local disk");
+        return;
+    }
+
+    byte[] textureBytes = texture.EncodeToPNG();
+    File.WriteAllBytes(Application.persistentDataPath + "_" + fileName, textureBytes);
+    Debug.Log("Saved to local disk!");
+}
+</code></pre>
+</li>
+<li>
+<p>To check on the texutre, you can go to <code>c:/&gt; users &gt; yourUserHere &gt; AppData &gt; LocalLow &gt; DefaultCompany</code>. If you do not see <code>AppData</code>, make sure File Explorer is <code>showing hidden files</code>by enabling the setting  under <code>... &gt; Options &gt; View &gt; Hidden files and folders &gt; Show hidden files, folders, and drives &gt; Apply</code>.</p>
+</li>
+<li>
+<p>To Load the texture, we can create a function called <code>GetTextureFromLocalDisk()</code>. The process is basically the same as saving it. But this time, I added a failsave where if the file doesn't exit in the <code>persistentDataPath</code>, I will instead load a texture stored in the <code>Resources</code> folder using <code>Resources.Load()</code>.</p>
+<pre><code class="language-c#">public Texture2D GetTextureFromLocalDisk(string fileName)
+{
+    byte[] textureBytes;
+    Texture2D loadTexture;
+
+    if (!File.Exists(Application.persistentDataPath + "_" + fileName))
+    {
+        loadTexture = Resources.Load&lt;Texture2D&gt;("FYP_Q3_AI_" + fileName);
+        loadTexture.filterMode = FilterMode.Point;
+
+        return loadTexture;
+    }
+
+    textureBytes = File.ReadAllBytes(Application.persistentDataPath + "_" + fileName);
+    loadTexture = new Texture2D(0, 0);
+    loadTexture.LoadImage(textureBytes);
+    loadTexture.filterMode = FilterMode.Point;
+
+    return loadTexture;
+}
+</code></pre>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="comfyui-audio"><a class="header" href="#comfyui-audio">ComfyUI Audio</a></h1>
+<ol>
+<li>
+<p>ComfyUI also supports generative audio. You'll have to download the <code>stable_audio_open_1.0</code> <a href="https://huggingface.co/stabilityai/stable-audio-open-1.0/tree/main">model</a> from Hugging Face. Unfortunately, due to fair use, you must have a Hugging Face account and take accountability for your actions while using this model.</p>
+</li>
+<li>
+<p>Download the model <code>safetensor</code> file and place it under the <code>checkpoints</code> folder in ComfyUI. You can find this folder in <code>ComfyUI &gt; models &gt; checkpoints</code>.</p>
+</li>
+<li>
+<p>Next up, you'll have to download the <code>t5-base</code> clip <a href="https://huggingface.co/google-t5/t5-base/tree/main">model</a> from Hugging Face. Place this under the <code>clip</code> folder in ComfyUI. You can find this folder in <code>ComfyUI &gt; models &gt; clip</code>.</p>
+</li>
+<li>
+<p>You can return to the ComfyUI webpage and load this super basic <a href="nested/../others/audio.json">workflow</a> using the <code>Load</code> button on the sidebar. Make sure to assign the <code>t5-base</code> clip model in the <code>Load Clip</code> node, and the <code>stable_audio_open_1.0</code> model in the <code>Load Checkpoint</code> node.</p>
+</li>
+<li>
+<p>Hit the <code>Queue Prompt</code> button and if you've done everything right, it should load a simple 90s melody consisting of snare drums and an electric piano!</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="comfyaudioctr"><a class="header" href="#comfyaudioctr">ComfyAudioCtr</a></h1>
+<ol>
+<li>
+<p><code>ComfyAudioCtr</code> is very similar to <code>ComfyPromptCtr</code>, the only method that needs to be changed is the <code>DowloadImage()</code>. As of the time of writing this, you're unable to access and download the output audio using <code>http://127.0.0.1:8188/view?filename=output.flac</code>. You are therefore unable to use <code>webrequest</code> to download the audio in the web.</p>
+</li>
+<li>
+<p>Thankfully, ComfyUI stores all the images &amp; audios in an <code>output</code> folder locally. You can therefore use <code>webrequest</code> to download the audio from this folder.</p>
+<ol>
+<li>
+<p>There are some problems with this method, the most obvious one being the hardcoded file path to the <code>output</code> folder in ComfyUI. Move ComfyUI to another location and this method will instantly break.</p>
+</li>
+<li>
+<p>Other than the vairables found in <a href="nested/./comfy-prompt-ctr.html">ComfyPromptCtr</a>, we'll need the filepath to ComfyUI's <code>audio output</code> folder. This can be found in <code>ComfyUI &gt; output &gt; audio</code>.</p>
+</li>
+</ol>
+<pre><code class="language-c#">[SerializeField] private string comfyAudioFilePath;
+</code></pre>
+<ol start="3">
+<li>We'll have to then change <code>DowloadImage()</code> to <code>DownloadAudio()</code>. Instead of accessing a web URL, we tell the webrequest to access a file location instead by putting <code>"file://"</code> at the front of the filepath.</li>
+</ol>
+<pre><code class="language-c#">private IEnumerator DownloadAudio(string imageUrl)
+{
+    yield return new WaitForSeconds(0.5f);
+
+    string fileName = ExtractFilenameFromURL(imageUrl);
+    imageUrl = "file://" + comfyAudioFilePath  + "/"  + fileName;
+    Debug.Log("Image URL: " + imageUrl);
+    using (UnityWebRequest webRequest =  UnityWebRequestMultimedia.GetAudioClip(imageUrl, AudioType.UNKNOWN))
+    {
+        yield return webRequest.SendWebRequest();
+
+        if (webRequest.result == UnityWebRequest.Result.Success)
+        {
+            // Get the downloaded texture
+            AudioClip audio = ((DownloadHandlerAudioClip)webRequest.downloadHandler).audioClip;
+            OnRecieveAudio?.Invoke(currentID, audio);
+        }
+        else
+        {
+            Debug.LogError("Audio download failed: " + webRequest.error);
+        }
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>We'll have to make changes to <a href="nested/./comfy-image-saver.html">Image Saver</a> as well. Saving an <code>AudioClip</code> as <code>wav</code> is quite complicated. I'l just link the <code>SavWav</code> <a href="nested/../others/SavWav.cs">class</a> for you to look through. To save the audio to the <code>persistentDataPath</code>, call the <code>Save()</code> function.</p>
+</li>
+<li>
+<p>To load the audio into the game, we'll have to use <code>webrequests</code> again, similar to what was done in <code>DownloadAudio()</code>.</p>
+</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="advanced-features"><a class="header" href="#advanced-features">Advanced Features</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="resources"><a class="header" href="#resources">Resources</a></h1>
 <h2 id="useful-links"><a class="header" href="#useful-links">Useful Links</a></h2>

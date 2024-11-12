@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/install-python.html">Install Python</a></li><li class="chapter-item "><a href="nested/install-git.html">Install Git</a></li><li class="chapter-item "><a href="nested/install-comfy-ui.html">Install ComfyUI</a></li><li class="chapter-item "><a href="nested/install-comfy-ui-manager.html">Install ComfyUI Manager</a></li><li class="chapter-item "><a href="nested/install-checkpoint.html">Install Checkpoint</a></li></ol></li><li class="chapter-item expanded "><a href="unity-integration.html" class="active">Unity Integration</a></li><li class="chapter-item "><a href="advanced-features.html">Advanced Features</a></li><li class="chapter-item "><a href="resources.html">Resources</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="getting-started.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/install-python.html">Install Python</a></li><li class="chapter-item "><a href="nested/install-git.html">Install Git</a></li><li class="chapter-item "><a href="nested/install-comfy-ui.html">Install ComfyUI</a></li><li class="chapter-item "><a href="nested/install-comfy-ui-manager.html">Install ComfyUI Manager</a></li><li class="chapter-item "><a href="nested/install-checkpoint.html">Install Checkpoint</a></li></ol></li><li class="chapter-item expanded "><a href="unity-integration.html" class="active">Unity Integration</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nested/comfy-prompt-ctr.html">ComfyPromptCtr</a></li><li class="chapter-item "><a href="nested/comfy-websocket.html">ComfyWebsocket</a></li><li class="chapter-item "><a href="nested/comfy-image-ctr.html">ComfyImageCtr</a></li><li class="chapter-item "><a href="nested/comfy-image-saver.html">ComfyImageSaver</a></li><li class="chapter-item "><a href="nested/comfy-audio.html">ComfyUI Audio</a></li><li class="chapter-item "><a href="nested/comfy-audio-ctr.html">ComfyAudioCtr</a></li></ol></li><li class="chapter-item "><a href="advanced-features.html">Advanced Features</a></li><li class="chapter-item "><a href="resources.html">Resources</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -176,6 +176,34 @@
                     <main>
                         <div class="content-wrap">
                             <h1 id="unity-integration"><a class="header" href="#unity-integration">Unity Integration</a></h1>
+<ol>
+<li>
+<p>To communicate with ComfyUI through Unity, you'll need to save your current <code>workflow</code> as an <code>API</code>. This <code>API</code> is saved as a JSON file.</p>
+</li>
+<li>
+<p>To save your current <code>workflow</code> as an <code>API</code>, click on the <code>Save (API Format)</code> on the sidebar. You can then rename this workflow and download it.</p>
+<p><img src="../../images/save_api.png" alt=" " /></p>
+</li>
+<li>
+<p>If you do not see this, go to <code>settings&gt;Comfy&gt;Enable Dev Mode</code>.</p>
+<p><img src="../../images/dev_mode.gif" alt=" " /></p>
+</li>
+<li>
+<p>Opening the JSON file will reveal a huge chunk of text. This is your workflow in JSON format. Don't wory, the only 2 things you need to worry about for now are keys <code>7</code> and <code>8</code>. They are the <code>positive</code> and <code>negative</code> prompts respectively. Do note that the keys are directly related to the number of nodes you have in your <code>workflow</code>, so DO NOT use them as identifiers!</p>
+<p><img src="../../images/api_json.png" alt=" " /></p>
+</li>
+<li>
+<p>Moving over to Unity, we'll be creating 3 scripts.</p>
+<ol>
+<li><code>ComfyPromptCtr</code>: This script handles the queueing of prompts.</li>
+<li><code>ComfyWebsocket</code>:  This script handles the websocket connection with ComfyUI.</li>
+<li><code>ComfyImageCtr</code>: This script handles the recieving / processing of the resulting image.</li>
+</ol>
+</li>
+<li>
+<p>Do note that this is my method of doing this. If you have a better method, feel free to use that instead.</p>
+</li>
+</ol>
 
                         </div>
                         <div class="sidetoc">
@@ -189,7 +217,7 @@
                             <i class="fa fa-angle-left"></i>
                         </a>
 
-                        <a rel="next prefetch" href="advanced-features.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <a rel="next prefetch" href="nested/comfy-prompt-ctr.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                             <i class="fa fa-angle-right"></i>
                         </a>
 
@@ -203,7 +231,7 @@
                     <i class="fa fa-angle-left"></i>
                 </a>
 
-                <a rel="next prefetch" href="advanced-features.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                <a rel="next prefetch" href="nested/comfy-prompt-ctr.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                     <i class="fa fa-angle-right"></i>
                 </a>
             </nav>

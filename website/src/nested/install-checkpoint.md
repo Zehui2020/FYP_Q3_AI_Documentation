@@ -1,7 +1,7 @@
-# Install Checkpoint
-Finally, we need to install a `checkpoint`. The `checkpoint` can be interpreted as the "AI model" used for image generation. Various `checkpoints` are available online for download, each differing in speed and quality based on the data used during their training. Choosing the right `checkpoint` is crucial, as it directly impacts the art style and performance of your project.
+# Install Model
+Finally, we need to install a `model`. The `Load Checkpoint` node can be interpreted as the loading the "AI model" used for image generation. Various `models` are available online for download, each differing in speed and quality based on the data used during their training. Choosing the right `model` is crucial, as it directly impacts the art style and performance of your project.
 
-1. A common `checkpoint` used is `sd-xl 1.0`. We can try using this `checkpoint` for now. Inside ComfyUI, open up the ComfyUIManager by clicking on the `Manager` button located at the bottom of the sidebar. Refer to [ComfyUIManager](install-comfy-ui-manager.md) if you don't see it.
+1. A common `model` used is `sd-xl 1.0`. We can try using this `model` for now. Inside ComfyUI, open up the ComfyUIManager by clicking on the `Manager` button located at the bottom of the sidebar. Refer to [ComfyUIManager](install-comfy-ui-manager.md) if you don't see it.
 
     ![ ](../images/comfyui_model_manager.png)
 
