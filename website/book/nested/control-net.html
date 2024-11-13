@@ -3,7 +3,7 @@
 <head>
     <!-- Book generated using mdBook -->
     <meta charset="UTF-8">
-    <title>ComfyImageSaver - FYP_Q3_Documentation</title>
+    <title>Control Net - FYP_Q3_Documentation</title>
 
 
     <!-- Custom HTML head -->
@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="../getting-started.html">Main Menu</a></li><li class="chapter-item expanded "><a href="../image-generation.html">Image Generation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../comfy-intro.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nested/install-python.html">Install Python</a></li><li class="chapter-item "><a href="../nested/install-git.html">Install Git</a></li><li class="chapter-item "><a href="../nested/install-comfy-ui.html">Install ComfyUI</a></li><li class="chapter-item "><a href="../nested/install-comfy-ui-manager.html">Install ComfyUI Manager</a></li><li class="chapter-item "><a href="../nested/install-checkpoint.html">Install Checkpoint</a></li></ol></li><li class="chapter-item expanded "><a href="../unity-integration.html">Unity Integration</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nested/comfy-prompt-ctr.html">ComfyPromptCtr</a></li><li class="chapter-item "><a href="../nested/comfy-websocket.html">ComfyWebsocket</a></li><li class="chapter-item "><a href="../nested/comfy-image-ctr.html">ComfyImageCtr</a></li><li class="chapter-item expanded "><a href="../nested/comfy-image-saver.html" class="active">ComfyImageSaver</a></li></ol></li><li class="chapter-item "><a href="../advanced-features.html">Advanced Features</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nested/control-net.html">Control Net</a></li><li class="chapter-item "><a href="../nested/install-lora.html">Lora</a></li><li class="chapter-item "><a href="../nested/install-others.html">Others</a></li></ol></li></ol></li><li class="chapter-item "><a href="../text-gen.html">Text Generation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nested/getting-started-text.html">Getting Started</a></li><li class="chapter-item "><a href="../nested/unity-integration-text.html">Unity Integration</a></li><li class="chapter-item "><a href="../nested/sentiment-analysis.html">Sentiment Analysis</a></li></ol></li><li class="chapter-item "><a href="../nested/comfy-audio.html">ComfyUI Audio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nested/comfy-audio-ctr.html">ComfyAudioCtr</a></li></ol></li><li class="chapter-item "><a href="../wfc.html">Wave Function Collapse</a></li><li class="chapter-item "><a href="../resources.html">Resources</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="../getting-started.html">Main Menu</a></li><li class="chapter-item expanded "><a href="../image-generation.html">Image Generation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../comfy-intro.html">Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nested/install-python.html">Install Python</a></li><li class="chapter-item "><a href="../nested/install-git.html">Install Git</a></li><li class="chapter-item "><a href="../nested/install-comfy-ui.html">Install ComfyUI</a></li><li class="chapter-item "><a href="../nested/install-comfy-ui-manager.html">Install ComfyUI Manager</a></li><li class="chapter-item "><a href="../nested/install-checkpoint.html">Install Checkpoint</a></li></ol></li><li class="chapter-item "><a href="../unity-integration.html">Unity Integration</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nested/comfy-prompt-ctr.html">ComfyPromptCtr</a></li><li class="chapter-item "><a href="../nested/comfy-websocket.html">ComfyWebsocket</a></li><li class="chapter-item "><a href="../nested/comfy-image-ctr.html">ComfyImageCtr</a></li><li class="chapter-item "><a href="../nested/comfy-image-saver.html">ComfyImageSaver</a></li></ol></li><li class="chapter-item expanded "><a href="../advanced-features.html">Advanced Features</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../nested/control-net.html" class="active">Control Net</a></li><li class="chapter-item "><a href="../nested/install-lora.html">Lora</a></li><li class="chapter-item "><a href="../nested/install-others.html">Others</a></li></ol></li></ol></li><li class="chapter-item "><a href="../text-gen.html">Text Generation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nested/getting-started-text.html">Getting Started</a></li><li class="chapter-item "><a href="../nested/unity-integration-text.html">Unity Integration</a></li><li class="chapter-item "><a href="../nested/sentiment-analysis.html">Sentiment Analysis</a></li></ol></li><li class="chapter-item "><a href="../nested/comfy-audio.html">ComfyUI Audio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../nested/comfy-audio-ctr.html">ComfyAudioCtr</a></li></ol></li><li class="chapter-item "><a href="../wfc.html">Wave Function Collapse</a></li><li class="chapter-item "><a href="../resources.html">Resources</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -175,67 +175,76 @@
                 <div id="content" class="content">
                     <main>
                         <div class="content-wrap">
-                            <h1 id="comfy-image-saver"><a class="header" href="#comfy-image-saver">Comfy Image Saver</a></h1>
+                            <h1 id="control-net"><a class="header" href="#control-net">Control Net</a></h1>
 <ol>
-<li>
-<p>After recieving the image, you might want to save it somewhere first instead of immediately displaying it on a UI Image. To do this, you can either:</p>
+<li>Control Net is a very useful feature. Where you can upload your own <code>reference image</code>, along with your <code>prompt</code> to control your image output. This process is also called <code>image 2 image</code>. Some control nets include:
 <ol>
-<li>Set up your own server and save it there.</li>
-<li>Save the image locally.</li>
+<li><code>Canny Edge</code></li>
+<li><code>Human Pose</code></li>
+<li><code>Depth</code></li>
 </ol>
-<p>For the sake of simplicity, let's go with saving locally.</p>
+</li>
+</ol>
+<p><img src="../images/controlnet_copy.png" alt="" /></p>
+<h2 id="canny-edge"><a class="header" href="#canny-edge">Canny Edge</a></h2>
+<p>Canny edge is one of the many edge detection methods. Passing the image through Canny Edge will trace out the edges of the image in white while coloring the rest in black. This tells the KSampler to draw the image within the bounds of the edge.</p>
+<div class="table-wrapper"><table><thead><tr><th>Pros</th><th>Cons</th></tr></thead><tbody>
+<tr><td>Can accurately determine the size &amp; shape of the image</td><td>Color in the reference image is not accounted for</td></tr>
+<tr><td>Fast processing time</td><td>Large file size of &gt;1GB</td></tr>
+</tbody></table>
+</div>
+<p><img src="../images/canny_edge.png" alt="" /></p>
+<h2 id="human-pose"><a class="header" href="#human-pose">Human Pose</a></h2>
+<p>Human Pose is a control net type that extracts human poses like positions of hands, legs, and head. They are then saved as a control map containing the positions of key points. It is then fed to Stable Diffusion as an extra conditioning together with the text prompt.</p>
+<div class="table-wrapper"><table><thead><tr><th>Pros</th><th>Cons</th></tr></thead><tbody>
+<tr><td>Can accurately determine the pose of the character</td><td>Similar to Canny Edge, the only detail accounted for is the pose</td></tr>
+<tr><td></td><td>Works best with humans, not very good for other body types</td></tr>
+</tbody></table>
+</div>
+<p><img src="../images/human_pose.png" alt="" /></p>
+<h2 id="depth"><a class="header" href="#depth">Depth</a></h2>
+<p>The depth preprocessor guesses the depth information from the reference image. It will then store the data as a depth map an pass it to the KSampler for diffusion. This can result in images with much more depth &amp; clear layers (background, middleground, foreground, etc).</p>
+<div class="table-wrapper"><table><thead><tr><th>Pros</th><th>Cons</th></tr></thead><tbody>
+<tr><td>Gives image more depth, making it look semi-realistic 3D</td><td>The depth preprocessor only guesses the depth information, so it can be quite inaccurate at times</td></tr>
+</tbody></table>
+</div>
+<p><img src="../images/depth_before.png" alt="" /> <img src="../images/depth.png" alt="" /></p>
+<h2 id="more-info"><a class="header" href="#more-info">More Info</a></h2>
+<p>For more information about control nets, refer to this <a href="https://stable-diffusion-art.com/controlnet/">article</a>.</p>
+<h2 id="application-in-comfyui"><a class="header" href="#application-in-comfyui">Application In ComfyUI</a></h2>
+<ol>
+<li>To get started, let's go with the Canny Edge detection control net first. Control Nets are VERSION SPECIFIC, so make sure you download a <code>controlnet</code> that fits the version of your <code>checkpoint model</code>. If you're using <a href="https://civitai.com/models">CivitAI</a> to download a <code>checkpoint model</code>, you can check its <code>base model version</code> at the side. Make sure the <code>controlnet model version</code> matches this as well!</li>
+</ol>
+<p><img src="../images/civit_model.png" alt="" /></p>
+<ol>
+<li>
+<p>Since we're using <code>SD1.0 Turbo</code> as our <code>checkpoint model</code>, it is of version <code>SD1.0</code>. Therefore, you should download <a href="https://huggingface.co/diffusers/controlnet-canny-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true">this</a> <code>canny checkpoint model</code> and place it under <code>ComfyUI&gt;models&gt;controlnet</code>.</p>
 </li>
 <li>
-<p>Create a class called <code>ImageSaver</code>. Please make it a static class so you can access it anywhere without needing to attach it to the gameobject. My 1 brain cell made it a monobehaviour and I'm lazy to change it, so for all the functions show below, add <code>static</code> beforw <code>void</code>.</p>
-<pre><code class="language-c#">Do:
-public static class ImageSaver {}
-
-NOT:
-public class ImageSaver : MonoBehaviour {}
-</code></pre>
+<p>Back in ComfyUI, we'll need 3 additional nodes:</p>
+<ol>
+<li><code>Load ControlNet Model</code></li>
+<li><code>Load Image</code></li>
+<li><code>Apply ControlNet</code></li>
+</ol>
 </li>
 <li>
-<p>We can then create a function called SaveImageToLocalDisk that takes in the texture and the filename of the image to save. To save a texture as a PNG, we have to encode it to PNG using <code>EncodeToPNG()</code> and store it within a <code>byte array</code>. We can then use <code>File.WriteAllBytes()</code> to save the image to the <code>persistentDataPath</code>.</p>
-<pre><code class="language-c#">public void SaveImageToLocalDisk(Texture2D texture, string fileName)
-{
-    if (texture == null)
-    {
-        Debug.Log("Nothing to save to local disk");
-        return;
-    }
-
-    byte[] textureBytes = texture.EncodeToPNG();
-    File.WriteAllBytes(Application.persistentDataPath + "_" + fileName, textureBytes);
-    Debug.Log("Saved to local disk!");
-}
-</code></pre>
+<p>To quickly find and create a new node, double click on an empty area in your <code>workflow</code>. Search for <code>Load ControlNet Model</code> and click on the node to add it into the workflow. Do the same for <code>Load Image</code> and <code>Apply ControlNet</code> and position them like so:</p>
+<p><img src="../images/setup_controlnet_1.gif" alt="" /></p>
 </li>
 <li>
-<p>To check on the texutre, you can go to <code>c:/&gt; users &gt; yourUserHere &gt; AppData &gt; LocalLow &gt; DefaultCompany</code>. If you do not see <code>AppData</code>, make sure File Explorer is <code>showing hidden files</code>by enabling the setting  under <code>... &gt; Options &gt; View &gt; Hidden files and folders &gt; Show hidden files, folders, and drives &gt; Apply</code>.</p>
+<p>Download and upload <a href="../images/item_bottle.png">this</a> reference image in the <code>Load Image</code> node and connect the <code>IMAGE</code> endpoint on <code>Load Image</code> to the <code>image</code>input on <code>Apply ControlNet</code>. Make sure to assign your <code>control net model</code> in <code>Load ControlNet</code> as well.</p>
+<p><img src="../images/setup_controlnet_2.gif" alt="" /></p>
 </li>
 <li>
-<p>To Load the texture, we can create a function called <code>GetTextureFromLocalDisk()</code>. The process is basically the same as saving it. But this time, I added a failsave where if the file doesn't exit in the <code>persistentDataPath</code>, I will instead load a texture stored in the <code>Resources</code> folder using <code>Resources.Load()</code>.</p>
-<pre><code class="language-c#">public Texture2D GetTextureFromLocalDisk(string fileName)
-{
-    byte[] textureBytes;
-    Texture2D loadTexture;
-
-    if (!File.Exists(Application.persistentDataPath + "_" + fileName))
-    {
-        loadTexture = Resources.Load&lt;Texture2D&gt;("FYP_Q3_AI_" + fileName);
-        loadTexture.filterMode = FilterMode.Point;
-
-        return loadTexture;
-    }
-
-    textureBytes = File.ReadAllBytes(Application.persistentDataPath + "_" + fileName);
-    loadTexture = new Texture2D(0, 0);
-    loadTexture.LoadImage(textureBytes);
-    loadTexture.filterMode = FilterMode.Point;
-
-    return loadTexture;
-}
-</code></pre>
+<p>Apply the <code>CONTROL_NET</code> endpoint in <code>Load Controlnet</code> to the <code>control_net</code> input in <code>Apply ControlNet</code>.</p>
+</li>
+<li>
+<p>Redirect the <code>positive</code> &amp; <code>negative</code> prompts to <code>Apply ControlNet</code>, and assign the <code>positve</code> &amp; <code>negative</code> ouputs to <code>KSampler</code>.</p>
+<p><img src="../images/setup_controlnet_3.gif" alt="" /></p>
+</li>
+<li>
+<p>After doing all the steps mentioned above, press the <code>Queue Prompt</code> button and the result should take the shape of the reference image you placed in.</p>
 </li>
 </ol>
 
@@ -247,11 +256,11 @@ public class ImageSaver : MonoBehaviour {}
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        <a rel="prev" href="../nested/comfy-image-ctr.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <a rel="prev" href="../advanced-features.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                             <i class="fa fa-angle-left"></i>
                         </a>
 
-                        <a rel="next prefetch" href="../advanced-features.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <a rel="next prefetch" href="../nested/install-lora.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                             <i class="fa fa-angle-right"></i>
                         </a>
 
@@ -261,11 +270,11 @@ public class ImageSaver : MonoBehaviour {}
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                <a rel="prev" href="../nested/comfy-image-ctr.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                <a rel="prev" href="../advanced-features.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                     <i class="fa fa-angle-left"></i>
                 </a>
 
-                <a rel="next prefetch" href="../advanced-features.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                <a rel="next prefetch" href="../nested/install-lora.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                     <i class="fa fa-angle-right"></i>
                 </a>
             </nav>
