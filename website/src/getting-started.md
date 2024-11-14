@@ -22,6 +22,13 @@ This documentation will walk you through:
 1. NVIDIA GPU | Good Intel / AMD CPU
 1. ~5-8 GB of free storage
 
+## Application Of Audio Generation In Unity Using ComfyUI
+
+### Description
+This documentation will walk you through:
+1. [ComfyUI Audio](./nested/comfy-audio.md)
+1. [ComfyAudioCtr](./nested/comfy-audio-ctr.md)
+
 ## Application Of Wave Function Collapse In Level Generation
 
 ### Description
